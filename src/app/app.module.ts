@@ -1,8 +1,11 @@
-import { NgModule } from '@angular/core';
+import {NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CitasModule } from './citas/citas.module';
+import { MaterialModule } from './material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -10,8 +13,12 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CitasModule,
+    MaterialModule,
+    BrowserAnimationsModule
   ],
+  schemas:[NO_ERRORS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

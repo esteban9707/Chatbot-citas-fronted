@@ -1,0 +1,81 @@
+<div> 
+
+    
+    <form [formGroup]="cites"> 
+        <div formArrayName="procedure">
+            <mat-card
+            [ngClass]="form.value.estado === 'En tramite' ? 'warn' : 'green'"
+            style="margin: 20px;  
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            text-align: center;" *ngFor="let form of procedure.controls; let i=index" [formGroupName]="i">
+                <div>
+                    <div >
+                        <mat-form-field appearance="fill">
+                            <mat-label>Identificador Cita</mat-label>
+                            <input matInput  formControlName="identificadorCita" >
+                        </mat-form-field>
+            
+            
+                        <mat-form-field appearance="fill">
+                            <mat-label>Nombre</mat-label>
+                            <input matInput formControlName="nombre">
+                        </mat-form-field>
+                
+                
+                        <mat-form-field appearance="fill">
+                            <mat-label>Apellido</mat-label>
+                            <input matInput formControlName="apellido">
+                        </mat-form-field>
+                
+                
+                        <mat-form-field appearance="fill">
+                            <mat-label>Identificación del usuario</mat-label>
+                            <input matInput formControlName="identificacionUsuario" >
+                        </mat-form-field>
+                
+                
+                        <mat-form-field appearance="fill">
+                            <mat-label>Entidad de servicios</mat-label>
+                            <input matInput formControlName="entidadServicios" >
+                        </mat-form-field>
+                
+                        
+                        <mat-form-field appearance="fill">
+                            <mat-label>Url remision</mat-label>
+                            <input matInput formControlName="url" >
+                        </mat-form-field>
+                
+                        <mat-form-field appearance="fill">
+                            <mat-label>Nombre espacialista</mat-label>
+                            <mat-select formControlName="nombreEspecialista">
+                                <mat-option [value]= "form.value.nombreEspecialista" > {{form.value.nombreEspecialista}}</mat-option>
+                                <mat-option [value]= "especialista.name" *ngFor="let especialista of especialistas">{{especialista.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                
+                        <mat-form-field appearance="fill">
+                            <mat-label>Fecha</mat-label>
+                            <input matInput formControlName="fecha" >
+                        </mat-form-field>
+                
+                        <mat-form-field appearance="fill">
+                            <mat-label>Hora consulta</mat-label>
+                            <input matInput formControlName="horaConsulta" >
+                        </mat-form-field>
+                
+                        <mat-form-field appearance="fill" >
+                            <mat-label>Estado</mat-label>
+                            <mat-select formControlName="estado" >
+                                <mat-option [value]= "form.value.estado" > {{form.value.estado}}</mat-option>
+                                <mat-option [value]= "estado.estado"  *ngFor="let estado of estados"> {{estado.estado}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <button mat-flat-button color="warn" style="margin: 5px;" (click)="getdataform(i)">Modificar</button>
+                </div>
+            </mat-card>
+        </div> 
+    </form>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+</div>
